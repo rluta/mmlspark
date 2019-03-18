@@ -39,7 +39,7 @@ private object TrainUtils extends Serializable {
   def translate(labelColumn: String, featuresColumn: String, weightColumn: Option[String], log: Logger,
                 trainParams: TrainParams, inputRows: Iterator[Row]): Iterator[LightGBMBooster] = {
     if (!inputRows.hasNext)
-      List[LightGBMBooster]().toIterator
+      return List[LightGBMBooster]().toIterator
 
     val rows = inputRows.toArray
     val numRows = rows.length
